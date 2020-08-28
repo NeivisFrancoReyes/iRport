@@ -1,0 +1,69 @@
+/*========================================================*/
+/* Table: HOTEL                                       */
+/*=========================================================*/
+CREATE DATABASE DB_HOTEL;
+
+create table Hotel (
+	Id_hotel int not null,
+	Nombre varchar (50),
+	Direccion varchar (50),
+	Telefono varchar (10),
+constraint pk_Id_hotel primary key (Id_hotel)
+);
+
+insert into Hotel (Id_hotel, Nombre, Direccion, Telefono) values (, 'Hotel cruz del sur2','Los Esperos ', '0962584521');
+select * from Hotel;
+
+/*========================================================*/
+/* Table: CLIENTE                                       */
+/*=========================================================*/
+
+create table Cliente (
+	Id_cliente int not null,
+	Id_hotel int not null,
+	Nombre varchar (50),
+	Apellido varchar(50),
+	Correo varchar (30),
+	Telefono varchar (10),
+constraint pk_Id_cliente primary key (Id_cliente, Id_hotel)
+);
+
+insert into Cliente (Id_cliente, Id_hotel, Nombre, Apellido, Correo, Telefono) values (1, 1,'Matias','Valdez','matias-valdez@gmail.com', '0985647568');
+select * from Cliente;
+/*========================================================*/
+/* Table: HABITACION                                       */
+/*=========================================================*/
+
+create table Habitacion (
+	Id_habitacion int not null,
+	Id_hotel int not null,
+	Descripcion varchar (250),
+	Num_Cama int not null,
+	Num_Habitacion varchar (2),
+constraint pk_Id_habitacion primary key (Id_habitacion, Id_hotel)
+);
+
+insert into Habitacion (Id_habitacion, Id_hotel, Descripcion, Num_cama, Num_Habitacion) values (1, 1, 'cama mediana',' 3', '2');
+insert into Habitacion (Id_habitacion, Id_hotel, Descripcion, Num_cama, Num_Habitacion) values (2, 2, 'cama pequeña','2', '1');
+select * from Habitacion;
+
+/*========================================================*/
+/* Table: ESTADIA                                       */
+/*=========================================================*/
+
+create table Estadia (
+	Id_estadia int not null,
+	Fecha_llegada  date not null,
+	Fecha_salida  date not null,
+constraint pk_Id_estadia primary key (Id_estadia)
+);
+
+insert into Estadia (Id_estadia, Fecha_llegada, Fecha_salida) values (1, '27-08-2020', '3-09-2020');
+select * from Estadia;
+
+
+select descripcion, Num_cama from Habitacion;
+
+
+
+
